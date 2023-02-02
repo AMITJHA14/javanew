@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>sum of 3 Items</title>
+</head>
+<body>
+	<label>Item1</label>
+<input type="text" id="txt1"  onkeyup="sum();" /><br>
+<label>Item2</label>
+<input type="text" id="txt2"  onkeyup="sum();" /><br>
+<label>Item3</label>
+<input type="text" id="txt3"  onkeyup="sum();" /><br>
+<label>Discount Percent</label>
+<input type="text" id="discountper"  onkeyup="sum();" /><br>
+<button id="btn_disable" >Including GST</button>
+	 <button id="btn_enable" >Excluding GST</button> 
+GST: <input type="text" id="gst" value="0"onkeyup="sum();"><br>
+<label>Total Including/Excluding GST</label>
+<input type="text" id="finalresult" />
+
+<script type="text/javascript">
+	function sum() {
+
+      var txtFirstNumberValue = document.getElementById('txt1').value;
+      var txtSecondNumberValue = document.getElementById('txt2').value;
+      var txtThirdNumberValue = document.getElementById('txt3').value;
+      var gst= document.getElementById('gst').value;
+      var discountValue=document.getElementById('discountper').value;
+      var txttotal=parseInt(txtFirstNumberValue) + parseInt(txtSecondNumberValue)+ parseInt(txtThirdNumberValue);
+      var percent=(parseInt(discountValue)*parseInt(txttotal)/100);
+      var gstpercent=(txttotal*gst/100);
+      var result = (parseInt(txttotal)- parseInt(percent))+ parseInt(gstpercent);
+
+      if (!isNaN(result)) {
+         document.getElementById('finalresult').value = result;
+      }
+}
+</script>
+ 
+</body>
+</html>
